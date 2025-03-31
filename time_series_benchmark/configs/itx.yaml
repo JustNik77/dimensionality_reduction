@@ -1,0 +1,40 @@
+m: iTX
+variants: [Base, Hyper, HyperE]
+history: 336
+horizons: [48, 96, 192, 336]
+batch_sizes: [64]
+lrs: [0.0002]
+seeds: [0]
+epochs: 25
+
+params:
+  d_hyper_hidden: [512]
+  d_hidden: [256]
+
+datasets:
+  -
+    name: ETTm1
+    file: ./data/ETTm1.npy
+    split: [0.6, 0.2, 0.2]
+    take_n: 57600
+    params:
+      d_embedding: 6
+  -
+    name: ETTm2
+    file: ./data/ETTm2.npy
+    split: [0.6, 0.2, 0.2]
+    take_n: 57600
+    params:
+      d_embedding: 6
+  -
+    name: ECL
+    file: ./data/electricity.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 14
+  -
+    name: PEMS08
+    file: ./data/PEMS08.npy
+    split: [0.7, 0.1, 0.2]
+    params:
+      d_embedding: 12
